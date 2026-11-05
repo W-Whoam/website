@@ -1,0 +1,1042 @@
+{
+ "format": "pale-guy-meme",
+ "version": 1,
+ "variations": [
+  {
+   "id": "orijinal",
+   "name": "Orijinal",
+   "notes": "Oyundaki sahne, olduğu gibi.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Yalnız mısın?",
+    "left": "Hayır, yalnız değilim",
+    "right": "Evet, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w1-yalnizim",
+   "name": "Uluslu musun? · yalnızım",
+   "notes": "Soru ve cevaplar: Whoam. Fısıltı ve kapanış: Claude taslağı (Discord sesi = yalnız değilsin; çevrimdışı olunca gelirim).",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Uluslu musun?",
+    "left": "Evet, Ulusluyum",
+    "right": "Hayır, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden Discord bildirim sesi geliyor.",
+    "close": "Tabii, Uluslular bir gün\nçevrimdışı olur."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w2-yalniz-misin",
+   "name": "Yalnız mısın? · Ulusluyum",
+   "notes": "Soru ve cevaplar: Whoam. Kapanış: Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Yalnız mısın?",
+    "left": "Evet, Ulusluyum",
+    "right": "Hayır, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, Ulus dağılınca\ngeri geleceğim."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w3-ulussuzum",
+   "name": "Ulussuzum",
+   "notes": "Soru ve cevaplar: Whoam. Geri kalanı oyundaki satırlar.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Uluslu musun?",
+    "left": "Ulusluyum",
+    "right": "Ulussuzum",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w4-vatansizim",
+   "name": "Vatansızım",
+   "notes": "Soru ve cevaplar: Whoam. Geri kalanı oyundaki satırlar.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Uluslu musun?",
+    "left": "Ulusluyum",
+    "right": "Vatansızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w5-picim",
+   "name": "Piçim",
+   "notes": "Soru ve cevaplar: Whoam. Geri kalanı oyundaki satırlar.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Uluslu musun?",
+    "left": "Ulusluyum",
+    "right": "Piçim",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w6-cumhuriyet",
+   "name": "Cumhuriyet!",
+   "notes": "Soru ve cevaplar: Whoam. Fısıltı ve kapanış: Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Cumhuriyet?",
+    "left": "CUMHURİYET!",
+    "right": "...",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden 10. Yıl Marşı geliyor.",
+    "close": "Tabii, marş bitince nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w7-ataturk",
+   "name": "Atatürk!",
+   "notes": "Soru ve cevaplar: Whoam. Fısıltı: Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Atatürk?",
+    "left": "ATATÜRK!",
+    "right": "...",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden İzmir Marşı geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w8-yolsuzluk",
+   "name": "Yolsuzluk",
+   "notes": "Soru ve cevaplar: Whoam. Fısıltı: Claude taslağı. Tepkide sırıtış yüzü (memnun).",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Yolsuzluk yapıyor musun?",
+    "left": "Evet.",
+    "right": "Hayır.",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden para sayma sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "grin",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "c1-henuz-degil",
+   "name": "Henüz değil",
+   "notes": "Tamamı Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Uluslu musun?",
+    "left": "Evet, Ulusluyum",
+    "right": "Henüz değil",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden kurul toplantısı sesi geliyor.",
+    "close": "Tabii, toplantı bitince nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "c2-kac-kisi",
+   "name": "Ulus kadarız",
+   "notes": "Tamamı Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Kaç kişisiniz?",
+    "left": "Ulus kadarız",
+    "right": "Tek kişiyim",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden kalabalık sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "c3-tarikat",
+   "name": "Tarikat mısınız?",
+   "notes": "Tamamı Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Tarikat mısınız?",
+    "left": "Hayır, Ulusluyuz",
+    "right": "Kurula sormam lazım",
+    "reply": "Tam bir tarikat cevabı.",
+    "whisper": "İçeriden oylama sesi geliyor.",
+    "close": "Tabii, oylama bitince nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "c4-ne-mutlu",
+   "name": "Ne mutlu!",
+   "notes": "Tamamı Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Ne mutlu?",
+    "left": "ULUSLUYUM DİYENE!",
+    "right": "...",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden \"Ne mutlu!\" sesleri geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "c5-english",
+   "name": "English · Are you Uluslu?",
+   "notes": "Tamamı Claude taslağı (İngilizce satırlar oyunun TR metninden çeviri, resmi İngilizce metin değil).",
+   "lines": {
+    "open": "Sooo...",
+    "question": "Are you Uluslu?",
+    "left": "Yes, I'm Uluslu",
+    "right": "No, I'm alone",
+    "reply": "It's your lucky day.",
+    "whisper": "I hear whispers from inside.",
+    "close": "Of course, I don't know where\nthey'll be in a few days."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "r1-hos-geldin",
+   "name": "Tepki · Ulus'a hoş geldin",
+   "notes": "Kısa tepki GIF'i. Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Yalnız mısın?",
+    "left": "Hayır, yalnız değilim",
+    "right": "Evet, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "Pekiiiii...",
+     "answers": "hidden",
+     "duration": 1.2
+    },
+    {
+     "face": "grin",
+     "text": "Ulus'a hoş geldin.",
+     "answers": "hidden",
+     "duration": 2.8
+    }
+   ]
+  },
+  {
+   "id": "r2-hala-degil",
+   "name": "Tepki · Hâlâ Uluslu değil misin?",
+   "notes": "Kısa tepki GIF'i. Claude taslağı.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Yalnız mısın?",
+    "left": "Hayır, yalnız değilim",
+    "right": "Evet, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "stare",
+     "text": "Pekiiiii...",
+     "answers": "hidden",
+     "duration": 1.0
+    },
+    {
+     "face": "stare",
+     "text": "Hâlâ Uluslu değil misin?",
+     "answers": "hidden",
+     "duration": 2.8
+    }
+   ]
+  }
+ ]
+}

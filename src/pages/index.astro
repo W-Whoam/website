@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="who.ulus.me" description="soon">
+  <main class="soon">
+    <p class="mark">who.ulus.me</p>
+    <h1>soon</h1>
+  </main>
+</Base>
+
+<style is:global>
+  @font-face {
+    font-family: 'Chakra Petch';
+    src: url('/pale-guy/fonts/ChakraPetch-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+  }
+  html, body { margin: 0; height: 100%; background: #050909; color: #cfe9e6; }
+  .soon {
+    min-height: 100%; display: grid; place-content: center; text-align: center;
+    font-family: 'Chakra Petch', system-ui, sans-serif;
+  }
+  .soon .mark { margin: 0 0 .4rem; color: #5f8783; letter-spacing: .2em; font-size: .8rem; text-transform: uppercase; }
+  .soon h1 {
+    margin: 0; font-weight: 600; font-size: clamp(3rem, 12vw, 7rem); letter-spacing: .04em; color: #7ff0ec;
+    text-shadow: 0 0 18px rgba(63, 214, 212, .45), 0 0 48px rgba(63, 214, 212, .18);
+  }
+</style>

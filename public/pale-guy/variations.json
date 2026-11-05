@@ -1,0 +1,146 @@
+{
+ "format": "pale-guy-meme",
+ "version": 1,
+ "variations": [
+  {
+   "id": "orijinal",
+   "name": "Orijinal",
+   "notes": "Oyundaki sahne, olduğu gibi.",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Yalnız mısın?",
+    "left": "Hayır, yalnız değilim",
+    "right": "Evet, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  },
+  {
+   "id": "w1-yalnizim",
+   "name": "Uluslu musun? · yalnızım",
+   "notes": "Soru ve cevaplar: Whoam. Fısıltı ve kapanış: Claude taslağı (Discord sesi = yalnız değilsin; çevrimdışı olunca gelirim).",
+   "lines": {
+    "open": "Pekiiiii...",
+    "question": "Uluslu musun?",
+    "left": "Evet, Ulusluyum",
+    "right": "Hayır, yalnızım",
+    "reply": "Şanslı günündesin.",
+    "whisper": "İçeriden Discord bildirim sesi geliyor.",
+    "close": "Tabii, Uluslular bir gün\nçevrimdışı olur."
+   },
+   "scenes": [
+    {
+     "face": "smirk",
+     "text": "{open}",
+     "answers": "hidden",
+     "duration": 2.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "hidden",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "none",
+     "duration": 1.6
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "right",
+     "duration": 1.0
+    },
+    {
+     "face": "grin",
+     "text": "{question}",
+     "answers": "left",
+     "duration": 1.7
+    },
+    {
+     "face": "stare",
+     "text": "{reply}",
+     "answers": "hidden",
+     "duration": 2.4
+    },
+    {
+     "face": "stare",
+     "text": "{whisper}",
+     "answers": "hidden",
+     "duration": 2.7
+    },
+    {
+     "face": "smirk",
+     "text": "{close}",
+     "answers": "hidden",
+     "duration": 3.6
+    },
+    {
+     "face": "door",
+     "text": "",
+     "answers": "hidden",
+     "duration": 1.2
+    }
+   ]
+  }
+ ]
+}

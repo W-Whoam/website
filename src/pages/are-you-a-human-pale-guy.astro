@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/pale.css';
+---
+<Base
+  title="Yalnız mısın? · Pale Visitor meme maker"
+  description="No, I'm Not a Human'daki Soluk Ziyaretçi sahnesinden kendi GIF ve videonu yap. Her şey tarayıcında çalışır."
+>
+  <div class="pg" id="app">
+    <header class="pg-top">
+      <div class="pg-brand">
+        <span class="pg-eye" aria-hidden="true"></span>
+        <div>
+          <h1 data-i18n="title">Yalnız mısın?</h1>
+          <p data-i18n="subtitle">Soluk Ziyaretçi meme yapıcı</p>
+        </div>
+      </div>
+      <button id="lang" class="ghost small" type="button">EN</button>
+    </header>
+
+    <main class="pg-main">
+      <section class="pg-stage" aria-label="preview">
+        <div class="pg-screen">
+          <canvas id="preview" width="1550" height="1050"></canvas>
+          <div id="loading" class="pg-loading" data-i18n="loading">Yükleniyor…</div>
+        </div>
+        <div class="pg-transport">
+          <button id="play" class="icon play" type="button">❚❚</button>
+          <div id="timeline" class="pg-timeline"><span id="playhead" class="playhead"></span></div>
+          <span id="time" class="pg-time">0.0</span>
+        </div>
+        <div class="pg-export">
+          <div class="pg-export-group">
+            <select id="gif-w" aria-label="GIF width">
+              <option value="480">480px</option>
+              <option value="640" selected>640px</option>
+              <option value="800">800px</option>
+            </select>
+            <button id="dl-gif" class="primary" type="button" data-i18n="downloadGif">GIF indir</button>
+          </div>
+          <div class="pg-export-group">
+            <select id="mp4-w" aria-label="Video width">
+              <option value="960">960px</option>
+              <option value="1280" selected>1280px</option>
+              <option value="1550">1550px</option>
+            </select>
+            <button id="dl-mp4" class="primary" type="button" data-i18n="downloadVideo">Video indir</button>
+          </div>
+          <button id="share" class="ghost" type="button" data-i18n="share">Bağlantıyı kopyala</button>
+          <input id="share-url" class="pg-share-url" readonly hidden />
+        </div>
+        <div id="progress" class="pg-progress" hidden><div class="bar"></div><span class="label"></span></div>
+      </section>
+
+      <aside class="pg-list">
+        <div class="pg-head">
+          <h2 data-i18n="variations">Varyasyonlar</h2>
+          <button id="v-new" class="ghost small" type="button" data-i18n="newVar">Yeni</button>
+        </div>
+        <ul id="v-list" class="pg-vlist"></ul>
+        <div class="pg-list-actions">
+          <button id="v-dup" class="ghost small" type="button" data-i18n="duplicate">Kopyala</button>
+          <button id="v-del" class="ghost small danger" type="button" data-i18n="delete">Sil</button>
+          <button id="json-import" class="ghost small" type="button" data-i18n="import">JSON içe aktar</button>
+          <button id="json-export" class="ghost small" type="button" data-i18n="exportAll">Tümünü JSON indir</button>
+          <button id="v-defaults" class="ghost small" type="button" data-i18n="addDefaults">Örnekleri ekle</button>
+        </div>
+      </aside>
+
+      <section class="pg-editor" aria-label="editor">
+        <label class="field">
+          <span data-i18n="name">Ad</span>
+          <input id="f-name" type="text" maxlength="120" />
+        </label>
+        <p id="f-notes" class="pg-notes" hidden></p>
+        <h3 data-i18n="lines">Satırlar</h3>
+        <div id="f-lines" class="pg-lines"></div>
+        <div class="pg-head">
+          <h3 data-i18n="scenes">Sahneler</h3>
+          <div class="pg-head-actions">
+            <button id="s-reset" class="ghost small" type="button" data-i18n="resetScenes">Şablona dön</button>
+            <button id="s-add" class="ghost small" type="button" data-i18n="addScene">+ Sahne</button>
+          </div>
+        </div>
+        <ol id="scenes" class="pg-scenes"></ol>
+        <p class="pg-help" data-i18n="help"></p>
+        <button id="json-export-one" class="ghost small" type="button" data-i18n="exportOne">Bunu JSON indir</button>
+      </section>
+    </main>
+
+    <footer class="pg-foot"><p data-i18n="credits"></p></footer>
+
+    <dialog id="import-dialog" class="pg-dialog">
+      <form method="dialog" onsubmit="return false">
+        <h3 data-i18n="importTitle">JSON içe aktar</h3>
+        <p class="pg-help" data-i18n="importHint"></p>
+        <input id="import-file" type="file" accept="application/json,.json" />
+        <textarea id="import-text" rows="8" spellcheck="false" placeholder='{"variations": [...]}'></textarea>
+        <p id="import-error" class="pg-error" role="alert"></p>
+        <div class="pg-dialog-actions">
+          <button id="import-cancel" class="ghost" type="button" data-i18n="cancel">Vazgeç</button>
+          <button id="import-replace" class="ghost danger" type="button" data-i18n="importReplace">Hepsini değiştir</button>
+          <button id="import-add" class="primary" type="button" data-i18n="importAdd">Ekle</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast" class="pg-toast" role="status" hidden></div>
+  </div>
+</Base>
+
+<script>
+  import '../pale/app';
+</script>
