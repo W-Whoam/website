@@ -1,9 +1,15 @@
 // Cloudflare Workers: static assets only. No Worker script, no bindings,
-// free plan. `bun run build` writes dist/, `wrangler deploy` uploads it.
+// free plan. `wrangler deploy` runs the build itself, then uploads dist/.
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "who-ulus-me",
+	// Must match the Worker's name in the Cloudflare dashboard, or Git builds fail.
+	"name": "whoam-website",
 	"compatibility_date": "2026-10-01",
+	// Runs before `wrangler deploy` and `wrangler dev`, so a deploy works even
+	// when the dashboard has no build command set.
+	"build": {
+		"command": "bun run build"
+	},
 	"assets": {
 		"directory": "./dist",
 		// /are-you-a-human-pale-guy -> /are-you-a-human-pale-guy/

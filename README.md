@@ -14,7 +14,7 @@ Static Astro site. Everything runs in the browser; Cloudflare serves the built f
 bun install
 bun run dev       # http://localhost:4321
 bun run build     # -> dist/
-bun run preview   # build, then serve dist/ in Cloudflare's local runtime (wrangler dev)
+bun run preview   # build, then serve it in Cloudflare's local runtime (wrangler dev)
 ```
 
 ## Deploy (Cloudflare Workers, static assets only)
@@ -23,7 +23,9 @@ Same flow as the Ulus Studio site, minus the bindings: there is no Worker script
 `wrangler.jsonc` only points Cloudflare at `dist/`. Free plan; static asset requests are not billed.
 
 1. Dashboard → **Workers & Pages** → **Create** → **Import a repository** → this repo.
-2. Build command `bun run build`, deploy command `bunx wrangler deploy`. Every push to `main` redeploys.
+2. Deploy command `bunx wrangler deploy` (it runs `bun run build` itself via `build.command`, so the build command
+   field can stay empty). Every push to `main` redeploys.
+   The `name` in `wrangler.jsonc` (`whoam-website`) must match the Worker's name in the dashboard, or the build fails.
 3. Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `who.ulus.me`.
 
 From a terminal instead: `bunx wrangler login`, then `bun run deploy`.
