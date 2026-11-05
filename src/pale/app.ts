@@ -6,7 +6,7 @@ import { exportGif, exportVideo } from './exporters';
 import { setLang, t, getLang, type Lang } from './i18n';
 import { loadAssets, type Assets } from './model';
 import { renderScene, resolveScenes, sceneKey, type ResolvedScene } from './scene';
-import { drawFilmFrame, tint, type FilmScene } from './film';
+import { drawFilmFrame } from './film';
 
 const ROOT = '/pale-guy/';
 const LS_KEY = 'paleguy:v1';
@@ -44,9 +44,9 @@ function progress(label: string | null, p = 0) {
 }
 
 // ---------------- rendering cache ----------------
-const cache = new Map<string, FilmScene>();
+const cache = new Map<string, HTMLCanvasElement>();
 let scenes: ResolvedScene[] = [];
-let frames: (FilmScene | null)[] = [];
+let frames: (HTMLCanvasElement | null)[] = [];
 let renderToken = 0;
 
 function cacheGet(k: string) {
@@ -54,7 +54,7 @@ function cacheGet(k: string) {
   if (c) { cache.delete(k); cache.set(k, c); }
   return c;
 }
-function cachePut(k: string, c: FilmScene) {
+function cachePut(k: string, c: HTMLCanvasElement) {
   cache.set(k, c);
   while (cache.size > 80) cache.delete(cache.keys().next().value!);
 }
@@ -72,11 +72,7 @@ async function renderAll(priority?: number) {
     await new Promise((r) => setTimeout(r, 0));
     if (token !== renderToken) return;
     const k = sceneKey(scenes[i]);
-    let c = cacheGet(k);
-    if (!c) {
-      const a = renderScene(assets, scenes[i]);
-      c = { a, b: tint(a, assets.model.film.matrix) };
-    }
+    const c = cacheGet(k) ?? renderScene(assets, scenes[i]);
     cachePut(k, c);
     frames[i] = c;
     shown = -2;
@@ -117,7 +113,7 @@ function loop(now: number) {
   // the film effect runs even while paused, like the original clip
   const n = Math.floor((now / 1000) * (film?.fps ?? 30));
   if (f && film && (n !== shownFrame || idx !== shown || shown === -2)) {
-    drawFilmFrame(canvas.getContext('2d')!, f, film, now / 1000, n, canvas.width, canvas.height, true);
+    drawFilmFrame(canvas.getContext('2d')!, f, film, now / 1000, n, canvas.width, canvas.height);
     shownFrame = n;
   }
   if (idx !== shown || shown === -2) {
@@ -311,7 +307,7 @@ const slug = (s: string) =>
 
 async function readyFrames() {
   await renderAll();
-  return frames.map((c, i) => ({ scene: c!, duration: scenes[i].duration }));
+  return frames.map((c, i) => ({ canvas: c!, duration: scenes[i].duration }));
 }
 
 let busy = false;
@@ -323,7 +319,7 @@ async function doExport(kind: 'gif' | 'video') {
   try {
     const fr = await readyFrames();
     if (kind === 'gif') {
-      const blob = await exportGif(fr, assets.model.film, 560, 10, (p) => progress(t('exportingGif'), p));
+      const blob = await exportGif(fr, 640, (p) => progress(t('exportingGif'), p));
       download(blob, `${slug(v.name)}.gif`);
     } else {
       const slow = typeof (window as any).VideoEncoder !== 'function';

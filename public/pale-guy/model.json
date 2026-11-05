@@ -270,25 +270,11 @@
   }
  },
  "film": {
-  "pattern": "bbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbaaaaaaaaaaaabbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbaaaabbaabbbbbbbbaabbaaaabbaabbbbaaaabbaaaabbaaaabbaaaabbaaaabbbbaabbbbbbaaaaaaaabbaabbaabbaabbaabbaabbaabbaabbaabbaabbaaaabbaaaabbaabbbbaabbbbaabbbbbbaaaaaababaabbaaababbbaaaababbabbaabbaaabaaabbbaaabbbbbabaaaaaa",
   "fps": 30,
-  "matrix": [
-   [
-    0.96,
-    0,
-    0
-   ],
-   [
-    0,
-    0.96,
-    0
-   ],
-   [
-    0,
-    0,
-    0.96
-   ]
-  ],
-  "grain": 0.12
+  "grain": 0.12,
+  "flicker": {
+   "amount": 0.025,
+   "hz": 6
+  }
  }
 }
