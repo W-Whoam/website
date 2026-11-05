@@ -28,21 +28,18 @@ function save() {
 
 const current = (): Variation => state.variations.find((v) => v.id === state.selected) ?? state.variations[0];
 
-// ---------------- toast / progress ----------------
+// ---------------- status line ----------------
 let toastTimer = 0;
 function toast(msg: string) {
-  const el = $('toast');
+  const el = $('status');
   el.textContent = msg;
-  el.hidden = false;
   clearTimeout(toastTimer);
-  toastTimer = window.setTimeout(() => (el.hidden = true), 2600);
+  toastTimer = window.setTimeout(() => (el.textContent = ''), 3200);
 }
 function progress(label: string | null, p = 0) {
-  const el = $('progress');
-  if (label === null) { el.hidden = true; return; }
-  el.hidden = false;
-  (el.querySelector('.bar') as HTMLElement).style.width = `${Math.round(p * 100)}%`;
-  (el.querySelector('.label') as HTMLElement).textContent = `${label} · ${Math.round(p * 100)}%`;
+  const el = $('status');
+  clearTimeout(toastTimer);
+  el.textContent = label === null ? '' : `${label}… ${Math.round(p * 100)}%`;
 }
 
 // ---------------- rendering cache ----------------
@@ -120,8 +117,6 @@ function loop(now: number) {
     }
     document.querySelectorAll('#timeline .seg').forEach((el, i) => el.classList.toggle('on', i === idx));
   }
-  const head = $('playhead');
-  head.style.left = T > 0 ? `${(time / T) * 100}%` : '0';
   $('time').textContent = `${time.toFixed(1)} / ${T.toFixed(1)} ${t('seconds')}`;
   requestAnimationFrame(loop);
 }
@@ -129,9 +124,7 @@ function loop(now: number) {
 function setPlaying(p: boolean) {
   playing = p;
   const b = $('play');
-  b.textContent = p ? '❚❚' : '▶';
-  b.title = p ? t('pause') : t('play');
-  b.setAttribute('aria-label', b.title);
+  b.textContent = p ? t('pause') : t('play');
 }
 
 function jumpTo(i: number) {
@@ -148,27 +141,22 @@ function buildTimeline() {
     const seg = document.createElement('button');
     seg.className = 'seg';
     seg.style.flexGrow = String(s.duration / T);
-    seg.textContent = String(i + 1);
-    seg.title = `${i + 1} · ${t(('face_' + s.face) as any)} · ${s.duration}${t('seconds')}`;
+    seg.title = `${i + 1}: ${t(('face_' + s.face) as any)}, ${s.duration} ${t('seconds')}`;
+    seg.setAttribute('aria-label', seg.title);
     seg.onclick = () => jumpTo(i);
-    tl.insertBefore(seg, $('playhead'));
+    tl.appendChild(seg);
   });
   shown = -2;
 }
 
 // ---------------- list ----------------
 function renderList() {
-  const ul = $('v-list');
-  ul.innerHTML = '';
-  for (const v of state.variations) {
-    const li = document.createElement('li');
-    const b = document.createElement('button');
-    b.className = 'v-item' + (v.id === state.selected ? ' on' : '');
-    b.textContent = v.name || t('untitled');
-    b.onclick = () => select(v.id);
-    li.appendChild(b);
-    ul.appendChild(li);
-  }
+  const sel = $<HTMLSelectElement>('v-select');
+  sel.innerHTML = '';
+  for (const v of state.variations) option(sel, v.id, v.name || t('untitled'));
+  sel.value = state.selected;
+  sel.onchange = () => select(sel.value);
+  $<HTMLButtonElement>('v-del').disabled = state.variations.length <= 1;
 }
 
 function select(id: string) {
@@ -213,7 +201,7 @@ function renderEditor() {
   lines.innerHTML = '';
   for (const k of LINE_KEYS) {
     const row = document.createElement('label');
-    row.className = 'field';
+    row.className = 'row';
     const span = document.createElement('span');
     span.textContent = t(('line_' + k) as any);
     const ta = document.createElement('textarea');
@@ -294,15 +282,10 @@ function renderScenes() {
       mk('↓', 'down', () => { [v.scenes[i + 1], v.scenes[i]] = [v.scenes[i], v.scenes[i + 1]]; renderScenes(); changed(); }, i === v.scenes.length - 1),
       mk('✕', 'remove', () => { v.scenes.splice(i, 1); renderScenes(); changed(); }, v.scenes.length <= 1),
     );
-    const top = document.createElement('div');
-    top.className = 'scene-top';
-    top.append(num, face, ans, dur);
-    const bottom = document.createElement('div');
-    bottom.className = 'scene-bottom';
-    bottom.append(text, tools);
-    li.append(top, bottom);
+    li.append(num, face, ans, dur, tools, text);
     ol.appendChild(li);
   });
+  $('scenes-count').textContent = `(${v.scenes.length})`;
 }
 
 // ---------------- actions ----------------
@@ -338,8 +321,8 @@ async function doExport(kind: 'gif' | 'video') {
       download(blob, `${slug(v.name)}.gif`);
     } else {
       const w = parseInt($<HTMLSelectElement>('mp4-w').value, 10);
-      if (typeof (window as any).VideoEncoder !== 'function') toast(t('realtimeNote'));
-      const res = await exportVideo(fr, w, 30, (p) => progress(t('exportingVideo'), p));
+      const slow = typeof (window as any).VideoEncoder !== 'function';
+      const res = await exportVideo(fr, w, 30, (p) => progress(slow ? t('realtimeNote') : t('exportingVideo'), p));
       download(res.blob, `${slug(v.name)}.${res.ext}`);
     }
     toast(t('done'));
@@ -347,7 +330,6 @@ async function doExport(kind: 'gif' | 'video') {
     console.error(e);
     toast(`${t('failed')}: ${(e as Error)?.message ?? e}`);
   } finally {
-    progress(null);
     busy = false;
     document.body.classList.remove('busy');
   }
@@ -408,6 +390,9 @@ async function loadDefaults(): Promise<Variation[]> {
 
 function wire() {
   $('play').onclick = () => setPlaying(!playing);
+  $('preview').onclick = () => setPlaying(!playing);
+  $('scenes').closest('details')!.addEventListener('toggle', () =>
+    document.querySelectorAll<HTMLTextAreaElement>('#scenes textarea').forEach(autoGrow));
   $('v-new').onclick = () => addVariations([{ id: newId(), name: t('untitled'), lines: { ...GAME_LINES }, scenes: templateScenes() }], 'new');
   $('v-dup').onclick = () => {
     const v = structuredClone(current());
