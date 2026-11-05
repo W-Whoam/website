@@ -1,0 +1,14 @@
+// Cloudflare Workers: static assets only. No Worker script, no bindings,
+// free plan. `bun run build` writes dist/, `wrangler deploy` uploads it.
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "who-ulus-me",
+	"compatibility_date": "2026-10-01",
+	"assets": {
+		"directory": "./dist",
+		// /are-you-a-human-pale-guy -> /are-you-a-human-pale-guy/
+		"html_handling": "auto-trailing-slash",
+		// Unknown paths get dist/404.html with a 404 status.
+		"not_found_handling": "404-page"
+	}
+}

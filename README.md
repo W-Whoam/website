@@ -1,21 +1,36 @@
 # who.ulus.me
 
-Static Astro site. Everything runs in the browser, so it deploys to Cloudflare Pages as plain files.
+Static Astro site. Everything runs in the browser; Cloudflare serves the built files.
 
 | Route | What |
 | --- | --- |
 | `/` | "soon" |
 | `/are-you-a-human-pale-guy` | Pale Visitor ("Yalnız mısın?") meme maker |
+| anything else | 404 page |
 
 ## Develop
 
 ```sh
 bun install
-bun run dev      # http://localhost:4321
-bun run build    # -> dist/
+bun run dev       # http://localhost:4321
+bun run build     # -> dist/
+bun run preview   # build, then serve dist/ in Cloudflare's local runtime (wrangler dev)
 ```
 
-Cloudflare Pages: build command `bun run build`, output directory `dist`. No functions or server code.
+## Deploy (Cloudflare Workers, static assets only)
+
+Same flow as the Ulus Studio site, minus the bindings: there is no Worker script, D1, R2 or adapter.
+`wrangler.jsonc` only points Cloudflare at `dist/`. Free plan; static asset requests are not billed.
+
+1. Dashboard → **Workers & Pages** → **Create** → **Import a repository** → this repo.
+2. Build command `bun run build`, deploy command `bunx wrangler deploy`. Every push to `main` redeploys.
+3. Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `who.ulus.me`.
+
+From a terminal instead: `bunx wrangler login`, then `bun run deploy`.
+
+Routing (`wrangler.jsonc`): `/are-you-a-human-pale-guy` redirects to the trailing-slash URL, unknown paths get
+`404.html` with a 404 status. Cache headers live in `public/_headers`: hashed `/_astro/*` files and fonts are cached
+for a year, images for a day, JSON and HTML revalidate on every visit.
 
 ## Meme maker
 

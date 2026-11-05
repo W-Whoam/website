@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="404 · who.ulus.me" description="Sayfa bulunamadı">
+  <main class="nf">
+    <h1>Kimse yok.</h1>
+    <p>Bu adreste bir sayfa yok. <a href="/">Ana sayfaya dön</a></p>
+  </main>
+</Base>
+
+<style is:global>
+  @font-face {
+    font-family: 'Chakra Petch';
+    src: url('/pale-guy/fonts/ChakraPetch-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+  }
+  html, body { margin: 0; height: 100%; background: #000; color: #cdebe7; }
+  .nf { min-height: 100%; display: grid; place-content: center; text-align: center; padding: 20px;
+    font-family: 'Chakra Petch', system-ui, sans-serif; }
+  .nf h1 { margin: 0 0 8px; font-weight: 600; font-size: clamp(2rem, 7vw, 3.4rem);
+    text-shadow: 0 0 10px rgba(0, 167, 164, .55), 0 0 28px rgba(0, 167, 164, .25); }
+  .nf p { margin: 0; color: #6f9893; }
+  .nf a { color: #cdebe7; text-underline-offset: 4px; }
+</style>

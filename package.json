@@ -6,11 +6,18 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro build && wrangler dev",
+    "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {
     "astro": "^7.4.5",
     "gifenc": "^1.0.3",
     "mp4-muxer": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.148.0"
   }
 }
