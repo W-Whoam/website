@@ -26,6 +26,8 @@ Same flow as the Ulus Studio site, minus the bindings: there is no Worker script
 2. Deploy command `bunx wrangler deploy` (it runs `bun run build` itself via `build.command`, so the build command
    field can stay empty). Every push to `main` redeploys.
    The `name` in `wrangler.jsonc` (`whoam-website`) must match the Worker's name in the dashboard, or the build fails.
+   Bun is pinned with `packageManager` in `package.json`; keep it equal to the Bun that wrote `bun.lock`, since
+   older Bun cannot read newer lockfiles.
 3. Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `who.ulus.me`.
 
 From a terminal instead: `bunx wrangler login`, then `bun run deploy`.
