@@ -91,8 +91,9 @@ Source in `src/pale/`, static assets in `public/pale-guy/`.
 
 Share links put the whole variation in the URL hash (`#v=…`), so nothing is stored anywhere.
 
-Film effect (`film` in `model.json`, `src/pale/film.ts`): the source clip flickers between two colour states; the
-per-frame pattern (30 fps) and the colour matrix were measured from it. Preview and video add moving grain on top.
+Film effect (`film` in `model.json`, `src/pale/film.ts`): a light flicker on the source clip's measured per-frame
+pattern (30 fps). `matrix` sets the second state (now 4% darker, no colour shift) and `grain` the moving grain
+strength (0-1) in preview and video.
 The GIF gets the flicker only (10 fps, 560 px, unchanged pixels written as transparent), since grain would make it
 several times bigger.
 
