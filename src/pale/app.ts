@@ -6,6 +6,7 @@ import { exportGif, exportVideo } from './exporters';
 import { setLang, t, getLang, type Lang } from './i18n';
 import { loadAssets, type Assets } from './model';
 import { renderScene, resolveScenes, sceneKey, type ResolvedScene } from './scene';
+import { drawFilmFrame, tint, type FilmScene } from './film';
 
 const ROOT = '/pale-guy/';
 const LS_KEY = 'paleguy:v1';
@@ -43,9 +44,9 @@ function progress(label: string | null, p = 0) {
 }
 
 // ---------------- rendering cache ----------------
-const cache = new Map<string, HTMLCanvasElement>();
+const cache = new Map<string, FilmScene>();
 let scenes: ResolvedScene[] = [];
-let frames: (HTMLCanvasElement | null)[] = [];
+let frames: (FilmScene | null)[] = [];
 let renderToken = 0;
 
 function cacheGet(k: string) {
@@ -53,7 +54,7 @@ function cacheGet(k: string) {
   if (c) { cache.delete(k); cache.set(k, c); }
   return c;
 }
-function cachePut(k: string, c: HTMLCanvasElement) {
+function cachePut(k: string, c: FilmScene) {
   cache.set(k, c);
   while (cache.size > 80) cache.delete(cache.keys().next().value!);
 }
@@ -71,7 +72,11 @@ async function renderAll(priority?: number) {
     await new Promise((r) => setTimeout(r, 0));
     if (token !== renderToken) return;
     const k = sceneKey(scenes[i]);
-    const c = cacheGet(k) ?? renderScene(assets, scenes[i]);
+    let c = cacheGet(k);
+    if (!c) {
+      const a = renderScene(assets, scenes[i]);
+      c = { a, b: tint(a, assets.model.film.matrix) };
+    }
     cachePut(k, c);
     frames[i] = c;
     shown = -2;
@@ -90,6 +95,7 @@ let playing = true;
 let time = 0;
 let last = performance.now();
 let shown = -1;
+let shownFrame = -1;
 const total = () => scenes.reduce((s, x) => s + x.duration, 0);
 
 function sceneAt(tt: number): number {
@@ -106,10 +112,16 @@ function loop(now: number) {
   if (playing && T > 0) { time += dt; if (time >= T) time = 0; }
   const idx = sceneAt(time);
   const canvas = $<HTMLCanvasElement>('preview');
+  const f = frames[idx];
+  const film = assets?.model.film;
+  // the film effect runs even while paused, like the original clip
+  const n = Math.floor((now / 1000) * (film?.fps ?? 30));
+  if (f && film && (n !== shownFrame || idx !== shown || shown === -2)) {
+    drawFilmFrame(canvas.getContext('2d')!, f, film, now / 1000, n, canvas.width, canvas.height, true);
+    shownFrame = n;
+  }
   if (idx !== shown || shown === -2) {
-    const f = frames[idx];
     if (f) {
-      canvas.getContext('2d')!.drawImage(f, 0, 0);
       shown = idx;
       $('loading').hidden = true;
     } else {
@@ -299,7 +311,7 @@ const slug = (s: string) =>
 
 async function readyFrames() {
   await renderAll();
-  return frames.map((c, i) => ({ canvas: c!, duration: scenes[i].duration }));
+  return frames.map((c, i) => ({ scene: c!, duration: scenes[i].duration }));
 }
 
 let busy = false;
@@ -311,13 +323,11 @@ async function doExport(kind: 'gif' | 'video') {
   try {
     const fr = await readyFrames();
     if (kind === 'gif') {
-      const w = 640;
-      const blob = await exportGif(fr, w, (p) => progress(t('exportingGif'), p));
+      const blob = await exportGif(fr, assets.model.film, 560, 10, (p) => progress(t('exportingGif'), p));
       download(blob, `${slug(v.name)}.gif`);
     } else {
-      const w = 1280;
       const slow = typeof (window as any).VideoEncoder !== 'function';
-      const res = await exportVideo(fr, w, 30, (p) => progress(slow ? t('realtimeNote') : t('exportingVideo'), p));
+      const res = await exportVideo(fr, assets.model.film, 1280, 30, (p) => progress(slow ? t('realtimeNote') : t('exportingVideo'), p));
       download(res.blob, `${slug(v.name)}.${res.ext}`);
     }
     toast(t('done'));

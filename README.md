@@ -91,6 +91,11 @@ Source in `src/pale/`, static assets in `public/pale-guy/`.
 
 Share links put the whole variation in the URL hash (`#v=…`), so nothing is stored anywhere.
 
+Film effect (`film` in `model.json`, `src/pale/film.ts`): the source clip flickers between two colour states; the
+per-frame pattern (30 fps) and the colour matrix were measured from it. Preview and video add moving grain on top.
+The GIF gets the flicker only (10 fps, 560 px, unchanged pixels written as transparent), since grain would make it
+several times bigger.
+
 Export: GIF via [gifenc](https://github.com/mattdesl/gifenc) (one frame per scene, ordered dithering), video via
 WebCodecs + [mp4-muxer](https://github.com/Vanilagy/mp4-muxer) (H.264 MP4), falling back to real-time `MediaRecorder`
 where WebCodecs is missing.

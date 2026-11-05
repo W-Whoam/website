@@ -31,6 +31,16 @@ export interface Model {
     answers: { x: number; y: number; none: string; left: string; right: string };
   };
   slots: Record<string, Slot>;
+  /** The original clip's flicker: per-frame 'a'/'b' states at `fps`, b = colours through `matrix`; grain strength 0..1. */
+  film: Film;
+}
+
+export interface Film {
+  pattern: string;
+  fps: number;
+  /** rows = input channel, columns = output channel */
+  matrix: number[][];
+  grain: number;
 }
 
 export interface Assets {
