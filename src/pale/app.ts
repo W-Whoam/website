@@ -117,7 +117,6 @@ function loop(now: number) {
     }
     document.querySelectorAll('#timeline .seg').forEach((el, i) => el.classList.toggle('on', i === idx));
   }
-  $('time').textContent = `${time.toFixed(1)} / ${T.toFixed(1)} ${t('seconds')}`;
   requestAnimationFrame(loop);
 }
 
@@ -193,9 +192,6 @@ function renderEditor() {
   const name = $<HTMLInputElement>('f-name');
   name.value = v.name;
   name.oninput = () => { v.name = name.value; save(); renderList(); };
-  const notes = $('f-notes');
-  notes.textContent = v.notes ?? '';
-  notes.hidden = !v.notes;
 
   const lines = $('f-lines');
   lines.innerHTML = '';
@@ -285,7 +281,6 @@ function renderScenes() {
     li.append(num, face, ans, dur, tools, text);
     ol.appendChild(li);
   });
-  $('scenes-count').textContent = `(${v.scenes.length})`;
 }
 
 // ---------------- actions ----------------
@@ -316,11 +311,11 @@ async function doExport(kind: 'gif' | 'video') {
   try {
     const fr = await readyFrames();
     if (kind === 'gif') {
-      const w = parseInt($<HTMLSelectElement>('gif-w').value, 10);
+      const w = 640;
       const blob = await exportGif(fr, w, (p) => progress(t('exportingGif'), p));
       download(blob, `${slug(v.name)}.gif`);
     } else {
-      const w = parseInt($<HTMLSelectElement>('mp4-w').value, 10);
+      const w = 1280;
       const slow = typeof (window as any).VideoEncoder !== 'function';
       const res = await exportVideo(fr, w, 30, (p) => progress(slow ? t('realtimeNote') : t('exportingVideo'), p));
       download(res.blob, `${slug(v.name)}.${res.ext}`);
@@ -414,17 +409,12 @@ function wire() {
     state.variations.splice(i, 1);
     select(state.variations[Math.max(0, i - 1)].id);
   };
-  $('v-defaults').onclick = async () => addVariations(await loadDefaults(), 'keep');
   $('json-import').onclick = openImport;
   $('import-add').onclick = () => importFrom(false);
   $('import-replace').onclick = () => importFrom(true);
   $('import-cancel').onclick = () => $<HTMLDialogElement>('import-dialog').close();
   $('json-export').onclick = () =>
     download(new Blob([JSON.stringify(toPack(state.variations), null, 2)], { type: 'application/json' }), 'pale-guy-varyasyonlar.json');
-  $('json-export-one').onclick = () => {
-    const v = current();
-    download(new Blob([JSON.stringify(toPack([v]), null, 2)], { type: 'application/json' }), `${slug(v.name)}.json`);
-  };
   $('s-add').onclick = () => {
     const v = current();
     const lastScene = v.scenes[v.scenes.length - 1];

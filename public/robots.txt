@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://who.ulus.me/sitemap-index.xml

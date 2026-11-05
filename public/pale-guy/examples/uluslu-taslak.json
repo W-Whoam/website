@@ -5,7 +5,6 @@
   {
    "id": "orijinal",
    "name": "Orijinal",
-   "notes": "Oyundaki sahne, olduğu gibi.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Yalnız mısın?",
@@ -75,15 +74,15 @@
   {
    "id": "w1-yalnizim",
    "name": "Uluslu musun? · yalnızım",
-   "notes": "Soru ve cevaplar: Whoam. Fısıltı ve kapanış: Claude taslağı (Discord sesi = yalnız değilsin; çevrimdışı olunca gelirim).",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Uluslu musun?",
     "left": "Evet, Ulusluyum",
     "right": "Hayır, yalnızım",
     "reply": "Şanslı günündesin.",
-    "whisper": "İçeriden Discord bildirim sesi geliyor.",
-    "close": "Tabii, Uluslular bir gün\nçevrimdışı olur."
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
    },
    "scenes": [
     {
@@ -145,7 +144,7 @@
   {
    "id": "w2-yalniz-misin",
    "name": "Yalnız mısın? · Ulusluyum",
-   "notes": "Soru ve cevaplar: Whoam. Kapanış: Claude taslağı.",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Yalnız mısın?",
@@ -153,7 +152,7 @@
     "right": "Hayır, yalnızım",
     "reply": "Şanslı günündesin.",
     "whisper": "İçeriden fısıltı sesi geliyor.",
-    "close": "Tabii, Ulus dağılınca\ngeri geleceğim."
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
    },
    "scenes": [
     {
@@ -215,7 +214,7 @@
   {
    "id": "w3-ulussuzum",
    "name": "Ulussuzum",
-   "notes": "Soru ve cevaplar: Whoam. Geri kalanı oyundaki satırlar.",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Uluslu musun?",
@@ -285,7 +284,7 @@
   {
    "id": "w4-vatansizim",
    "name": "Vatansızım",
-   "notes": "Soru ve cevaplar: Whoam. Geri kalanı oyundaki satırlar.",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Uluslu musun?",
@@ -355,7 +354,7 @@
   {
    "id": "w5-picim",
    "name": "Piçim",
-   "notes": "Soru ve cevaplar: Whoam. Geri kalanı oyundaki satırlar.",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Uluslu musun?",
@@ -425,15 +424,15 @@
   {
    "id": "w6-cumhuriyet",
    "name": "Cumhuriyet!",
-   "notes": "Soru ve cevaplar: Whoam. Fısıltı ve kapanış: Claude taslağı.",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Cumhuriyet?",
     "left": "CUMHURİYET!",
     "right": "...",
     "reply": "Şanslı günündesin.",
-    "whisper": "İçeriden 10. Yıl Marşı geliyor.",
-    "close": "Tabii, marş bitince nerede olurlar\nbilemiyorum."
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
    },
    "scenes": [
     {
@@ -495,14 +494,14 @@
   {
    "id": "w7-ataturk",
    "name": "Atatürk!",
-   "notes": "Soru ve cevaplar: Whoam. Fısıltı: Claude taslağı.",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Atatürk?",
     "left": "ATATÜRK!",
     "right": "...",
     "reply": "Şanslı günündesin.",
-    "whisper": "İçeriden İzmir Marşı geliyor.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
     "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
    },
    "scenes": [
@@ -565,14 +564,14 @@
   {
    "id": "w8-yolsuzluk",
    "name": "Yolsuzluk",
-   "notes": "Soru ve cevaplar: Whoam. Fısıltı: Claude taslağı. Tepkide sırıtış yüzü (memnun).",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Yolsuzluk yapıyor musun?",
     "left": "Evet.",
     "right": "Hayır.",
     "reply": "Şanslı günündesin.",
-    "whisper": "İçeriden para sayma sesi geliyor.",
+    "whisper": "İçeriden fısıltı sesi geliyor.",
     "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
    },
    "scenes": [

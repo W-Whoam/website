@@ -5,7 +5,6 @@
   {
    "id": "orijinal",
    "name": "Orijinal",
-   "notes": "Oyundaki sahne, olduğu gibi.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Yalnız mısın?",
@@ -75,15 +74,15 @@
   {
    "id": "w1-yalnizim",
    "name": "Uluslu musun? · yalnızım",
-   "notes": "Soru ve cevaplar: Whoam. Fısıltı ve kapanış: Claude taslağı (Discord sesi = yalnız değilsin; çevrimdışı olunca gelirim).",
+   "notes": "Soru ve cevaplar: Whoam. Diğer satırlar oyundan.",
    "lines": {
     "open": "Pekiiiii...",
     "question": "Uluslu musun?",
     "left": "Evet, Ulusluyum",
     "right": "Hayır, yalnızım",
     "reply": "Şanslı günündesin.",
-    "whisper": "İçeriden Discord bildirim sesi geliyor.",
-    "close": "Tabii, Uluslular bir gün\nçevrimdışı olur."
+    "whisper": "İçeriden fısıltı sesi geliyor.",
+    "close": "Tabii, birkaç gün sonra nerede olurlar\nbilemiyorum."
    },
    "scenes": [
     {

@@ -8,6 +8,10 @@ Static Astro site. Everything runs in the browser; Cloudflare serves the built f
 | `/are-you-a-human-pale-guy` | Pale Visitor ("Yalnız mısın?") meme maker |
 | anything else | 404 page |
 
+SEO: every page sets title, description, canonical URL, Open Graph/Twitter tags and JSON-LD through
+`src/layouts/Base.astro`. `@astrojs/sitemap` writes `sitemap-index.xml` at build time; `public/robots.txt` points to it.
+The meme page's share image is `public/pale-guy/og.jpg` (1200×630).
+
 ## Develop
 
 ```sh
@@ -47,7 +51,8 @@ Source in `src/pale/`, static assets in `public/pale-guy/`.
 - `img/`: clean background plates with the game text removed. `base` (grin) plus patches for the other faces and the
   three answer-box states, and the empty doorway.
 - `variations.json`: what a first-time visitor sees. Replace it with your own export to change the defaults.
-- `examples/uluslu-taslak.json`: draft pack to import in the editor.
+- `examples/uluslu-taslak.json`: pack to import in the editor. Variations whose id starts with `w` are Whoam's
+  (his question and answers, other lines from the game); `c` and `r` ones are Claude's drafts.
 
 ### Variation JSON
 

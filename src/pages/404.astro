@@ -1,25 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="404 · who.ulus.me" description="Sayfa bulunamadı">
+<Base title="404 · who.ulus.me" description="Bu adreste bir sayfa yok." noindex>
   <main class="nf">
-    <h1>Kimse yok.</h1>
-    <p>Bu adreste bir sayfa yok. <a href="/">Ana sayfaya dön</a></p>
+    <h1>404</h1>
+    <p>Bu adreste bir sayfa yok. <a href="/">who.ulus.me</a></p>
   </main>
 </Base>
 
 <style is:global>
-  @font-face {
-    font-family: 'Chakra Petch';
-    src: url('/pale-guy/fonts/ChakraPetch-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-display: swap;
-  }
-  html, body { margin: 0; height: 100%; background: #000; color: #cdebe7; }
-  .nf { min-height: 100%; display: grid; place-content: center; text-align: center; padding: 20px;
-    font-family: 'Chakra Petch', system-ui, sans-serif; }
-  .nf h1 { margin: 0 0 8px; font-weight: 600; font-size: clamp(2rem, 7vw, 3.4rem);
-    text-shadow: 0 0 10px rgba(0, 167, 164, .55), 0 0 28px rgba(0, 167, 164, .25); }
-  .nf p { margin: 0; color: #6f9893; }
-  .nf a { color: #cdebe7; text-underline-offset: 4px; }
+  html, body { margin: 0; min-height: 100%; background: #000; color: #fff; }
+  body { font: 400 1rem/1.5 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .nf { min-height: 100svh; box-sizing: border-box; padding: 24px; display: grid; place-content: center; text-align: center; gap: 10px; }
+  .nf h1 { margin: 0; font-size: clamp(2.4rem, 8vw, 4.5rem); font-weight: 700; }
+  .nf p { margin: 0; color: #9a9a9a; }
+  .nf a { color: #fff; text-underline-offset: 4px; }
 </style>

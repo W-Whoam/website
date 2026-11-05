@@ -1,28 +1,51 @@
 ---
 import Base from '../layouts/Base.astro';
 import '../styles/pale.css';
+
+const title = "Yalnız mısın? · No, I'm Not a Human meme yapıcı";
+const description =
+  "No, I'm Not a Human'daki Soluk Ziyaretçi kapı sahnesine kendi satırlarını yaz, GIF ya da MP4 olarak indir. Ücretsiz, kayıt yok, her şey tarayıcında çalışır.";
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Yalnız mısın? meme yapıcı',
+  alternateName: "Are you alone? · No, I'm Not a Human Pale Visitor meme maker",
+  url: 'https://who.ulus.me/are-you-a-human-pale-guy/',
+  description,
+  applicationCategory: 'MultimediaApplication',
+  operatingSystem: 'Web',
+  inLanguage: ['tr', 'en'],
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'TRY' },
+  image: 'https://who.ulus.me/pale-guy/og.jpg',
+};
 ---
 <Base
-  title="Yalnız mısın?"
-  description="No, I'm Not a Human'daki kapı sahnesine kendi satırlarını yaz, GIF ya da video olarak indir. Her şey tarayıcında çalışır."
+  title={title}
+  description={description}
+  image="/pale-guy/og.jpg"
+  imageAlt="Soluk Ziyaretçi kapıda soruyor: Yalnız mısın?"
+  jsonLd={jsonLd}
 >
+  <link slot="head" rel="preload" href="/pale-guy/fonts/ChakraPetch-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+  <link slot="head" rel="preload" href="/pale-guy/img/base.webp" as="image" type="image/webp" />
+
   <div class="pg" id="app">
     <header class="top">
       <h1 data-i18n="title">Yalnız mısın?</h1>
       <button id="lang" class="link" type="button">EN</button>
-      <p class="lede" data-i18n="subtitle"></p>
     </header>
 
     <div class="layout">
-      <section class="stage" aria-label="preview">
+      <section class="stage" aria-label="Önizleme">
         <div class="screen">
-          <canvas id="preview" width="1550" height="1050"></canvas>
+          <canvas id="preview" width="1550" height="1050" role="img" aria-label="Meme önizlemesi"></canvas>
           <span id="loading" class="loading" data-i18n="loading">Yükleniyor…</span>
+          <noscript><p class="noscript">Bu araç tarayıcında JavaScript ile çalışır.</p></noscript>
         </div>
         <div class="transport">
           <button id="play" class="link" type="button"></button>
           <div id="timeline" class="timeline"></div>
-          <span id="time" class="time"></span>
         </div>
 
         <div class="choices" role="group">
@@ -30,29 +53,13 @@ import '../styles/pale.css';
           <button id="dl-mp4" class="choice" type="button" data-i18n="downloadVideo">Video indir</button>
           <button id="share" class="choice" type="button" data-i18n="share">Bağlantıyı kopyala</button>
         </div>
-        <div class="sizes">
-          <label><span data-i18n="gifSize">GIF genişliği</span>
-            <select id="gif-w">
-              <option value="480">480</option>
-              <option value="640" selected>640</option>
-              <option value="800">800</option>
-            </select>
-          </label>
-          <label><span data-i18n="videoSize">Video genişliği</span>
-            <select id="mp4-w">
-              <option value="960">960</option>
-              <option value="1280" selected>1280</option>
-              <option value="1550">1550</option>
-            </select>
-          </label>
-        </div>
         <p id="status" class="status" role="status" aria-live="polite"></p>
         <input id="share-url" class="share-url" readonly hidden />
       </section>
 
-      <section class="editor" aria-label="editor">
+      <section class="editor" aria-label="Düzenle">
         <div class="picker">
-          <select id="v-select" aria-label="variation"></select>
+          <select id="v-select" aria-label="Varyasyon"></select>
           <button id="v-new" class="link" type="button" data-i18n="newVar">Yeni</button>
           <button id="v-dup" class="link" type="button" data-i18n="duplicate">Kopyala</button>
           <button id="v-del" class="link" type="button" data-i18n="delete">Sil</button>
@@ -63,13 +70,11 @@ import '../styles/pale.css';
             <span data-i18n="name">Ad</span>
             <input id="f-name" type="text" maxlength="120" />
           </label>
-          <p id="f-notes" class="notes" hidden></p>
           <div id="f-lines"></div>
         </div>
 
         <details class="scenes-box">
-          <summary><span data-i18n="scenes">Sahneler</span> <span id="scenes-count" class="muted"></span></summary>
-          <p class="hint" data-i18n="help"></p>
+          <summary data-i18n="scenes">Sahneler</summary>
           <ol id="scenes" class="scenes"></ol>
           <div class="scene-actions">
             <button id="s-add" class="link" type="button" data-i18n="addScene">Sahne ekle</button>
@@ -79,19 +84,18 @@ import '../styles/pale.css';
 
         <div class="files">
           <button id="json-import" class="link" type="button" data-i18n="import">JSON içe aktar</button>
-          <button id="json-export-one" class="link" type="button" data-i18n="exportOne">Bunu JSON indir</button>
-          <button id="json-export" class="link" type="button" data-i18n="exportAll">Hepsini JSON indir</button>
-          <button id="v-defaults" class="link" type="button" data-i18n="addDefaults">Örnekleri ekle</button>
+          <button id="json-export" class="link" type="button" data-i18n="exportAll">JSON indir</button>
         </div>
       </section>
     </div>
 
-    <footer class="foot"><p data-i18n="credits"></p></footer>
+    <footer class="foot">
+      <p><span data-i18n="credits">Görseller: No, I’m Not a Human (Trioskaz).</span> <a href="/">who.ulus.me</a></p>
+    </footer>
 
     <dialog id="import-dialog" class="dialog">
       <form method="dialog" onsubmit="return false">
         <h2 data-i18n="importTitle">JSON içe aktar</h2>
-        <p class="hint" data-i18n="importHint"></p>
         <input id="import-file" type="file" accept="application/json,.json" />
         <textarea id="import-text" rows="8" spellcheck="false" placeholder='{"variations": [...]}'></textarea>
         <p id="import-error" class="error" role="alert"></p>

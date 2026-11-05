@@ -1,28 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const links = [
+  { href: 'https://github.com/W-Whoam/website', label: 'W-Whoam / website' },
+  { href: 'https://github.com/W-Whoam', label: 'GitHub' },
+  { href: 'https://ulus.me', label: 'Ulus' },
+];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'who.ulus.me',
+  url: 'https://who.ulus.me/',
+  inLanguage: 'tr',
+};
 ---
-<Base title="who.ulus.me" description="soon">
-  <main class="soon">
-    <p class="mark">who.ulus.me</p>
-    <h1>soon</h1>
+<Base title="who.ulus.me" description="Whoam'ın sitesi. Yakında." jsonLd={jsonLd}>
+  <main class="home">
+    <h1>Yakında...</h1>
+    <ul class="links">
+      {links.map((l) => <li><a href={l.href} rel="me noopener">{l.label}</a></li>)}
+    </ul>
+    <p class="extra"><a href="/are-you-a-human-pale-guy/">Yalnız mısın? meme yapıcı</a></p>
   </main>
 </Base>
 
 <style is:global>
-  @font-face {
-    font-family: 'Chakra Petch';
-    src: url('/pale-guy/fonts/ChakraPetch-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-display: swap;
-  }
-  html, body { margin: 0; height: 100%; background: #050909; color: #cfe9e6; }
-  .soon {
-    min-height: 100%; display: grid; place-content: center; text-align: center;
-    font-family: 'Chakra Petch', system-ui, sans-serif;
-  }
-  .soon .mark { margin: 0 0 .4rem; color: #5f8783; letter-spacing: .2em; font-size: .8rem; text-transform: uppercase; }
-  .soon h1 {
-    margin: 0; font-weight: 600; font-size: clamp(3rem, 12vw, 7rem); letter-spacing: .04em; color: #7ff0ec;
-    text-shadow: 0 0 18px rgba(63, 214, 212, .45), 0 0 48px rgba(63, 214, 212, .18);
-  }
+  html, body { margin: 0; min-height: 100%; background: #000; color: #fff; }
+  body { font: 400 1rem/1.5 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .home { min-height: 100svh; box-sizing: border-box; padding: 24px; display: grid; place-content: center; justify-items: center; text-align: center; gap: 18px; }
+  .home h1 { margin: 0; font-size: clamp(2.4rem, 8vw, 4.5rem); font-weight: 700; letter-spacing: -.01em; }
+  .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; }
+  .home a { color: #fff; text-decoration: underline; text-decoration-color: #555; text-underline-offset: 4px; }
+  .home a:hover { text-decoration-color: #fff; }
+  .home a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .extra { margin: 14px 0 0; font-size: .9rem; }
+  .extra a { color: #9a9a9a; }
 </style>

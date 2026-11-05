@@ -30,7 +30,6 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   margin: 0; font-weight: 600; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.1;
   text-shadow: 0 0 10px rgba(0, 167, 164, .55), 0 0 28px rgba(0, 167, 164, .25);
 }
-.lede { grid-column: 1 / -1; margin: 0; color: var(--dim); max-width: 60ch; }
 
 /* ---------- layout ---------- */
 .layout { display: grid; gap: 28px 40px; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); align-items: start; }
@@ -50,7 +49,6 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .timeline .seg { flex: 1 1 0; height: 4px; background: var(--rule); transition: height .12s; }
 .timeline .seg:hover { height: 8px; background: #2d4f4b; }
 .timeline .seg.on { background: var(--box); height: 8px; }
-.time { color: var(--dim); font-size: .85rem; font-variant-numeric: tabular-nums; min-width: 7.5em; text-align: right; }
 
 /* ---------- the game's answer choices ----------
    Plain pale text; the highlight box sits on one option at a time and follows the pointer. */
@@ -124,3 +122,6 @@ textarea { resize: none; overflow: hidden; display: block; line-height: 1.35; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media (max-width: 520px) { .picker select { flex-basis: 100%; } }
+
+.noscript { position: absolute; inset: auto 12px 12px 12px; margin: 0; color: var(--text); }
+.foot a { color: var(--dim); text-underline-offset: 4px; }
